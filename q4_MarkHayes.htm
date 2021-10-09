@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Question 4</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<style>
+			html, body	{	/* This style ensures that the border extends to the whole page and not just to the content */
+			height: 100%;	
+			}	
+					
+			ul {	/* Style for the navbar ensuring there are no gaps and it extends across the whole page */
+				margin: -10px;
+				padding: 0;
+				overflow: hidden;
+				background-color: #CCCCCC;
+				min-width: 100%;
+				font-family: "Trebuchet", Arial, sans-serif;
+			}
+
+			li	{	/* Style for the individual buttons and their location within the navbar */
+				float: left;
+				display:table-cell;
+				min-width: 25%;
+			}
+
+			li a {	/* Style for the text and its behaviour within the navbar buttons */
+				display: block;
+				text-align: center;
+				min-width:100%;
+				padding: 20px;
+				font-family: "Trebuchet", Arial, sans-serif;
+			}
+
+			a:link {	/* Styling the links and options within the Grid Size menu */
+				color: black;
+				text-decoration: none;
+			}
+
+			a:hover {	/* Styling the links when hovered upon */
+			background-color: black;
+			display: block;
+			min-width:100%;
+			color: white;
+				transition-duration: 0.5s;
+			}
+
+			div.border 	{	/* Styling the border down the sides of the page */
+				margin: 0 15% 0 15%;
+				border-left: 2px solid #262626;
+				border-right: 2px solid #262626;
+				padding: 5px;
+				height: 100%;
+			}
+
+			body 	{	/* Style for all text within the page */
+				font-family: "Trebuchet", Arial, sans-serif;
+				background-color: white;
+				color: #666666;
+				text-align: center;
+			}
+
+			table, tr, td {	/* Style for the thickness and single line format of the table borders */
+				border: 2px solid black;
+				border-collapse: collapse;
+			}
+
+							
+			.cellWhite	{		/* Style for the white cells when changed by the function */
+				background: #FFFFFF
+				}
+				
+			.cellBlack	{		/* Style for the black cells when changed by the function */
+				background: #000000
+				}
+
+			.button {	/* Style for the select menu button and the "Generate Crossword" button */
+				background-color: white;
+				color: black;
+				padding: 10px;
+				font-size: 14px;
+				border: 1px solid black;
+				transition-duration: 0.5s;
+			}
+				
+			.button:hover, .button:focus  {	/* Style for the select menu button and the "Generate Crossword" button when hovered upon */
+				background-color: black;
+				color: white;
+			}
+
+
+
+		</style>
+		
+		
+		<script>	
+		
+			function btnClick()	{	//This is the function to determine what happens when you click on the "Generate Crossword" button
+							
+				var table = ''; 
+						
+						//Builds the table with individually coloured rows and cells with the function to change the mirrored cell
+				
+				
+						table += '<tr id = "row 1">';
+					table += '<td id = C1 class="cellWhite" onclick="colourChange(this); colourChange(C81)"><a href=""></a></td><td id = C2 class="cellWhite" onclick="colourChange(this); colourChange(C80)"><a href=""></a></td><td id = C3 class="cellWhite" onclick="colourChange(this); colourChange(C79)"><a href=""></a></td><td id = C4 class="cellWhite" onclick="colourChange(this); colourChange(C78)"><a href=""></a></td><td id = C5 class="cellWhite" onclick="colourChange(this); colourChange(C77)"><a href=""></a></td><td id = C6 class="cellWhite" onclick="colourChange(this); colourChange(C76)"><a href=""></a></td><td id = C7 class="cellWhite" onclick="colourChange(this); colourChange(C75)"><a href=""></a></td><td id = C8 class="cellWhite" onclick="colourChange(this); colourChange(C74)"><a href=""></a></td><td id = C9 class="cellWhite" onclick="colourChange(this); colourChange(C73)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 2">';
+					table += '<td id = C10 class="cellWhite" onclick="colourChange(this); colourChange(C72)"><a href=""></a></td><td id = C11 class="cellBlack" onclick="colourChange(this); colourChange(C71)"><a href=""></a></td><td id = C12 class="cellWhite" onclick="colourChange(this); colourChange(C70)"><a href=""></a></td><td id = C13 class="cellBlack" onclick="colourChange(this); colourChange(C69)"><a href=""></a></td><td id = C14 class="cellWhite" onclick="colourChange(this); colourChange(C68)"><a href=""></a></td><td id = C15 class="cellBlack" onclick="colourChange(this); colourChange(C67)"><a href=""></a></td><td id = C16 class="cellWhite" onclick="colourChange(this); colourChange(C66)"><a href=""></a></td><td id = C17 class="cellBlack" onclick="colourChange(this); colourChange(C65)"><a href=""></a></td><td id = C18 class="cellWhite" onclick="colourChange(this); colourChange(C64)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 3">';
+					table += '<td id = C19 class="cellWhite" onclick="colourChange(this); colourChange(C63)"><a href=""></a></td><td id = C20 class="cellWhite" onclick="colourChange(this); colourChange(C62)"><a href=""></a></td><td id = C21 class="cellWhite" onclick="colourChange(this); colourChange(C61)"><a href=""></a></td><td id = C22 class="cellWhite" onclick="colourChange(this); colourChange(C60)"><a href=""></a></td><td id = C23 class="cellWhite" onclick="colourChange(this); colourChange(C59)"><a href=""></a></td><td id = C24 class="cellWhite" onclick="colourChange(this); colourChange(C58)"><a href=""></a></td><td id = C25 class="cellWhite" onclick="colourChange(this); colourChange(C57)"><a href=""></a></td><td id = C26 class="cellWhite" onclick="colourChange(this); colourChange(C56)"><a href=""></a></td><td id = C27 class="cellWhite" onclick="colourChange(this); colourChange(C55)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 4">';
+					table += '<td id = C28 class="cellWhite" onclick="colourChange(this); colourChange(C54)"><a href=""></a></td><td id = C29 class="cellBlack" onclick="colourChange(this); colourChange(C53)"><a href=""></a></td><td id = C30 class="cellWhite" onclick="colourChange(this); colourChange(C52)"><a href=""></a></td><td id = C31 class="cellBlack" onclick="colourChange(this); colourChange(C51)"><a href=""></a></td><td id = C32 class="cellWhite" onclick="colourChange(this); colourChange(C50)"><a href=""></a></td><td id = C33 class="cellBlack" onclick="colourChange(this); colourChange(C49)"><a href=""></a></td><td id = C34 class="cellWhite" onclick="colourChange(this); colourChange(C48)"><a href=""></a></td><td id = C35 class="cellBlack" onclick="colourChange(this); colourChange(C47)"><a href=""></a></td><td id = C36 class="cellWhite" onclick="colourChange(this); colourChange(C46)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 5">';
+					table += '<td id = C37 class="cellWhite" onclick="colourChange(this); colourChange(C45)"><a href=""></a></td><td id = C38 class="cellWhite" onclick="colourChange(this); colourChange(C44)"><a href=""></a></td><td id = C39 class="cellWhite" onclick="colourChange(this); colourChange(C43)"><a href=""></a></td><td id = C40 class="cellWhite" onclick="colourChange(this); colourChange(C42)"><a href=""></a></td><td id = C41 class="cellWhite" onclick="colourChange(this)"><a href=""></a></td><td id = C42 class="cellWhite" onclick="colourChange(this); colourChange(C40)"><a href=""></a></td><td id = C43 class="cellWhite" onclick="colourChange(this); colourChange(C39)"><a href=""></a></td><td id = C44 class="cellWhite" onclick="colourChange(this); colourChange(C38)"><a href=""></a></td><td id = C45 class="cellWhite" onclick="colourChange(this); colourChange(C37)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 6">';
+					table += '<td id = C46 class="cellWhite" onclick="colourChange(this); colourChange(C36)"><a href=""></a></td><td id = C47 class="cellBlack" onclick="colourChange(this); colourChange(C35)"><a href=""></a></td><td id = C48 class="cellWhite" onclick="colourChange(this); colourChange(C34)"><a href=""></a></td><td id = C49 class="cellBlack" onclick="colourChange(this); colourChange(C33)"><a href=""></a></td><td id = C50 class="cellWhite" onclick="colourChange(this); colourChange(C32)"><a href=""></a></td><td id = C51 class="cellBlack" onclick="colourChange(this); colourChange(C31)"><a href=""></a></td><td id = C52 class="cellWhite" onclick="colourChange(this); colourChange(C30)"><a href=""></a></td><td id = C53 class="cellBlack" onclick="colourChange(this); colourChange(C29)"><a href=""></a></td><td id = C54 class="cellWhite" onclick="colourChange(this); colourChange(C28)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 7">';
+					table += '<td id = C55 class="cellWhite" onclick="colourChange(this); colourChange(C27)"><a href=""></a></td><td id = C56 class="cellWhite" onclick="colourChange(this); colourChange(C26)"><a href=""></a></td><td id = C57 class="cellWhite" onclick="colourChange(this); colourChange(C25)"><a href=""></a></td><td id = C58 class="cellWhite" onclick="colourChange(this); colourChange(C24)"><a href=""></a></td><td id = C59 class="cellWhite" onclick="colourChange(this); colourChange(C23)"><a href=""></a></td><td id = C60 class="cellWhite" onclick="colourChange(this); colourChange(C22)"><a href=""></a></td><td id = C61 class="cellWhite" onclick="colourChange(this); colourChange(C21)"><a href=""></a></td><td id = C62 class="cellWhite" onclick="colourChange(this); colourChange(C20)"><a href=""></a></td><td id = C63 class="cellWhite" onclick="colourChange(this); colourChange(C19)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 8">';
+					table += '<td id = C64 class="cellWhite" onclick="colourChange(this); colourChange(C18)"><a href=""></a></td><td id = C65 class="cellBlack" onclick="colourChange(this); colourChange(C17)"><a href=""></a></td><td id = C66 class="cellWhite" onclick="colourChange(this); colourChange(C16)"><a href=""></a></td><td id = C67 class="cellBlack" onclick="colourChange(this); colourChange(C15)"><a href=""></a></td><td id = C68 class="cellWhite" onclick="colourChange(this); colourChange(C14)"><a href=""></a></td><td id = C69 class="cellBlack" onclick="colourChange(this); colourChange(C13)"><a href=""></a></td><td id = C70 class="cellWhite" onclick="colourChange(this); colourChange(C12)"><a href=""></a></td><td id = C71 class="cellBlack" onclick="colourChange(this); colourChange(C11)"><a href=""></a></td><td id = C72 class="cellWhite" onclick="colourChange(this); colourChange(C10)"><a href=""></a></td>';
+					table += '</tr>';
+						table += '<tr id = "row 9">';
+					table += '<td id = C73 class="cellWhite" onclick="colourChange(this); colourChange(C9)"><a href=""></a></td><td id = C74 class="cellWhite" onclick="colourChange(this); colourChange(C8)"><a href=""></a></td><td id = C75 class="cellWhite" onclick="colourChange(this); colourChange(C7)"><a href=""></a></td><td id = C76 class="cellWhite" onclick="colourChange(this); colourChange(C6)"><a href=""></a></td><td id = C77 class="cellWhite" onclick="colourChange(this); colourChange(C5)"><a href=""></a></td><td id = C78 class="cellWhite" onclick="colourChange(this); colourChange(C4)"><a href=""></a></td><td id = C79 class="cellWhite" onclick="colourChange(this); colourChange(C3)"><a href=""></a></td><td id = C80 class="cellWhite" onclick="colourChange(this); colourChange(C2)"><a href=""></a></td><td id = C81 class="cellWhite" onclick="colourChange(this); colourChange(C1)"><a href=""></a></td>';
+					table += '</tr>';																																																																																																																																																														  
+		
+		
+							
+				document.getElementById('crossword').innerHTML = table;
+			}
+				
+			
+			
+				
+			function colourChange(cell)	{
+				if (cell.className == "cellWhite")
+					cell.className = "cellBlack";
+				else if (cell.className == "cellBlack")
+						cell.className = "cellWhite";
+			}		//Swaps black cells for white cells and vice versa
+		
+		
+		
+					
+			
+		
+		
+		
+			function validate(){	//Determines the function for the validate button
+				
+				let rows = ["row 1", "row 2", "row 3", "row 4", "row 5", "row 6", "row 7", "row 8", "row 9"]; 
+				
+				for (let i = 0; i < rows.length; ++i) {	
+					let rowNumber = rows[i];		//the for loop to determine how many black cells are in a row
+								
+					var change = document.getElementById(rowNumber);	
+					var rowcount = nodesSameClass = change.getElementsByClassName("cellBlack").length;		
+						if ((rowcount < 0) || (rowcount > 5))
+							alert("The number of black cells per row should be between 0 and 5. Please adjust " + rowNumber);	// the dialogue box to alert the user if there are too many black cells in the row
+						else	
+							("");
+					}
+					
+				var count = document.querySelectorAll(".cellBlack").length;			// the variable to determine how many black cells are on the page in total		
+					if ((count < 21) || (count > 29))
+						alert("The number of black cells (" + count + ") should be between 21 and 29.");	//the dialogue box to alert the user if the number of black cells falls outside the assignemnt parameters
+					else 
+						("");
+			}
+		</script>
+				
+				
+		
+		
+		
+		
+	</head>
+
+
+	<body>
+		<ul>
+			<li><a href="q1_MarkHayes.htm">Question 1</a></li>
+			<li><a href="q2_MarkHayes.htm">Question 2</a></li>
+			<li><a href="q3_MarkHayes.htm">Question 3</a></li>
+			<li><a href="q4_MarkHayes.htm">Question 4</a></li>
+		</ul>		<!-- Above is the html code for a navbar at the top of the page to allow easy switching between assignment questions -->
+
+		<br><br>
+		<div class="border">
+		
+			<img src="images/csc.jpg" alt="Crossword Solitaire Chess Logo" align="left" style="width:150px;height:150px";>
+			<img src="images/csc.jpg" alt="Crossword Solitaire Chess Logo" align="right" style="width:150px;height:150px";>
+			<!-- Images used to identify the page and its purpose -->
+		
+		<header>
+			<h1>Q4</h1>
+			<h2> VALIDATE YOUR CROSSWORD </h2>
+		</header>	<!-- The page details -->
+		
+			<div align="center">
+		
+		<input type="button" class="button" value="Generate Crossword" onclick = "btnClick()"> <!-- The button to run the table design function -->
+		<input type="button" class="button" value="Validate Crossword" onclick = "validate()"> <!-- The button to run the validation function -->
+		
+		<br><br>
+		
+		<div>
+			<table id = "crossword"  cellpadding = "20" ></table>
+			<!-- This line identifies the crossword element and tells the function how large each cell should be -->
+		</div>
+			
+			
+			</div>
+			
+			
+	
+			
+		<br><br><br>
+
+			<footer>
+				C1 - Assignment 2 - Mark Hayes - #17212307
+			</footer>	<!-- A footer with some basic information on the page's author -->
+		
+		</div>	<!-- This closes the border class which draws the lines down the page sides -->
+
+
+	</body>	<!-- End of body tag -->
+	
+	
+</html>	<!-- End of page -->

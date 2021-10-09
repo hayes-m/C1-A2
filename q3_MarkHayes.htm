@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Question 3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<style>
+			html, body	{	/* This style ensures that the border extends to the whole page and not just to the content */
+			height: 100%;	
+			}		
+					
+			ul	{	/* Style for the navbar ensuring there are no gaps and it extends across the whole page */
+				margin: -10px;
+				padding: 0;
+				overflow: hidden;
+				background-color: #CCCCCC;
+				min-width: 100%;
+				font-family: "Trebuchet", Arial, sans-serif;
+			}
+
+			li	{	/* Style for the individual buttons and their location within the navbar */
+				float: left;
+				display:table-cell;
+				min-width: 25%;
+			}
+
+			li a	{	/* Style for the text and its behaviour within the navbar buttons */
+				display: block;
+				text-align: center;
+				min-width:100%;
+				padding: 20px;
+				font-family: "Trebuchet", Arial, sans-serif;
+			}
+
+			option, a:link	{	/* Styling the links and options within the Grid Size menu */
+				color: black;
+				text-decoration: none;
+				display:block;
+			}
+
+			a:hover	{	/* Styling the links when hovered upon */
+			background-color: black;
+			display: block;
+			min-width:100%;
+			color: white;
+			transition-duration: 0.5s;
+			}
+
+			option:hover	{	/* Styling the Grid Size menu options when hovered upon */
+			background-color: black;
+			display: block;
+			min-width:100%;
+			color: white;
+			transition-duration: 0.5s;
+			z-index: 1;
+			}
+
+			div.border	{	/* Styling the border down the sides of the page */
+				margin: 0 15% 0 15%;
+				border-left: 2px solid #262626;
+				border-right: 2px solid #262626;
+				padding: 5px;
+				height: 100%;
+			}
+
+			body	{	/* Style for all text within the page */
+				font-family: "Trebuchet", Arial, sans-serif;
+				background-color: white;
+				color: #666666;
+				text-align: center;
+			}
+
+			.gridSize	{	/* Ensures the menu stays connected to the select button */
+				position:relative;
+				display:inline-block;
+			}
+
+			.gridFormat	{	/* Styles the options within the select menu */
+				display: none;
+				color: black;
+				position: absolute;
+				font-family:  "Trebuchet", Arial, sans-serif;
+				min-width: 100%;
+				overflow: auto;
+				box-shadow: 0px 0px 10px 0px;
+				z-index: 1;
+			}
+			
+			table, tr, td {	/* Style for the thickness and single line format of the table borders */
+				border: 2px solid black;
+				border-collapse: collapse;
+			}
+
+			table tr:nth-child(even) {	/* Style to colour even rows black */
+			background:#000000;
+			}
+
+
+			table td:nth-child(odd) {	/*Style to colour the odd columns white which overwrites the black rows */
+			background: #FFFFFF;
+			}
+				
+			.button, select {	/* Style for the select menu button and the "Generate Crossword" button */
+				background-color: white;
+				text-align: center;
+				color: black;
+				padding: 10px;
+				font-size: 14px;
+				border: 1px solid black;
+				transition-duration: 0.5s;
+			}
+				
+			.button:hover, .button:focus  {	/* Style for the select menu button and the "Generate Crossword" button when hovered upon */
+				background-color: black;
+				color: white;
+			}		
+		</style>
+		
+		
+		<script type="text/javascript">
+			function myGrid()	{
+		
+				var selection = document.getElementById("gridSize").value;
+				document.getElementById("howBig").innerHTML = "You have selected a " + selection + "x" + selection + " grid. Click 'Generate Crossword' to continue.";
+			}	// Grabs the value of the grid size and prints it to confirm for the user
+				
+				
+			function btnClick()	{	//This is the function to determine what happens when you click on the "Generate Crossword" button
+			
+				var selection = document.getElementById("gridSize").value;
+				var table = '';
+				var r;
+				for (r=1; r<= selection; r++)	//This is the outer loop which tells the function to iterate rows until it hits nine rows
+					{
+					table += '<tr id = "rows">';
+					
+						for (c=1; c<= selection; c++)	//This is the inner loop which tells the function to iterate columns until it hits nine columns
+							{
+							table += '<td id = "columns"></td>';
+							}
+							
+						table += '</tr>';	//Closes the outer loop
+					}
+				document.getElementById('crossword').innerHTML = table;
+			}
+						
+		</script>
+						
+	</head>
+
+
+	<body>
+		<ul>
+			<li><a href="q1_MarkHayes.htm">Question 1</a></li>
+			<li><a href="q2_MarkHayes.htm">Question 2</a></li>
+			<li><a href="q3_MarkHayes.htm">Question 3</a></li>
+			<li><a href="q4_MarkHayes.htm">Question 4</a></li>
+		</ul>	<!-- Above is the html code for a navbar at the top of the page to allow easy switching between assignment questions -->
+		
+		<br><br>
+			
+		<div class="border">	<!-- Designed to bring two slim bars down the sides of the page narrowing in the focus -->
+			
+			<img src="images/csc.jpg" alt="Crossword Solitaire Chess Logo" align="left" style="width:150px;height:150px";>
+			<img src="images/csc.jpg" alt="Crossword Solitaire Chess Logo" align="right" style="width:150px;height:150px";>
+			<!-- Images used to identify the page and its purpose -->			
+			
+			<header>
+				<h1>Q3</h1>
+				<h2> SELECT CROSSWORD SIZE </h2>
+			</header>	<!-- The page details -->
+	
+	
+
+			<select id="gridSize" onchange="myGrid()">
+			<option selected disabled hidden>Please select a grid size</option>
+			  <option value="5">5x5
+			  <option value="7">7x7
+			  <option value="9">9x9
+			  <option value="11">11x11
+			</select> <!-- Grabs the value of the option selected and assigns it the the function upon selection -->
+
+	
+			<div align="center">
+			
+			<p id="howBig"></p> <!-- Prints the value selected -->
+	
+		<br>
+		
+		<input type="button" class="button" value="Generate Crossword" Onclick = "btnClick()">
+			<!-- This line tells the function to kick in when the user clicks the button -->
+		<br><br>
+		
+		<div><table id = "crossword" cellpadding = "20"></table></div>
+			<!-- This line identifies the crossword element and tells the function how large each cell should be -->
+			</div>
+			
+		<br><br><br>
+
+		<footer>
+			C1 - Assignment 2 - Mark Hayes - #17212307
+		</footer>	<!-- A footer with some basic information on the page's author -->
+		
+			</div>	<!-- This closes the border class which draws the lines down the page sides -->
+
+
+	</body>	<!-- End of body tag -->
+	
+	
+</html>	<!-- End of page -->
